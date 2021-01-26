@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ma réu</string>
+    <string name="meeting_circle">Meeting Circle</string>
+    <string name="add_button">add button</string>
+    <string name="filter_button">Filter button</string>
+    <string name="delete_button">Delete button</string>
+    <string name="place">Place</string>
+    <string name="hour">Hour</string>
+    <string name="date">Date</string>
+    <string name="subject">Subject</string>
+    <string name="save">Save</string>
+    <string name="participants">Participants</string>
+</resources>
