@@ -6,29 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.meeting_list.AddMeetingActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
         <ImageView
             android:id="@+id/avatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/circle"
             android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/placeLyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="@dimen/field_padding_top"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            app:layout_constraintTop_toBottomOf="@id/avatar">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/place"
@@ -44,7 +40,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp">
+            android:layout_marginTop="@dimen/field_top_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            app:layout_constraintTop_toBottomOf="@id/placeLyt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hour"
@@ -60,7 +59,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp">
+            android:layout_marginTop="@dimen/field_top_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            app:layout_constraintTop_toBottomOf="@id/hourLyt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/date"
@@ -76,7 +78,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp">
+            android:layout_marginTop="@dimen/field_top_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            app:layout_constraintTop_toBottomOf="@id/dateLyt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/subject"
@@ -92,7 +97,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp">
+            android:layout_marginTop="@dimen/field_top_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            app:layout_constraintTop_toBottomOf="@id/subjectLyt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/participants"
@@ -111,11 +119,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:layout_gravity="center"
             app:cornerRadius="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/save"/>
-
-    </LinearLayout>
+            android:layout_marginTop="@dimen/field_padding_top"
+            android:text="@string/save"
+            app:layout_constraintTop_toBottomOf="@id/participantsLyt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

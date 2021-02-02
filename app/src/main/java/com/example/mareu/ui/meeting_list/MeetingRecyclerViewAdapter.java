@@ -14,6 +14,9 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mareu.R;
+import com.example.mareu.databinding.ActivityAddMeetingBinding;
+import com.example.mareu.databinding.ActivityListMeetingBinding;
+import com.example.mareu.databinding.FragmentMeetingBinding;
 import com.example.mareu.model.Meeting;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -33,17 +36,15 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_meeting, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(FragmentMeetingBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Meeting meeting = mMeetings.get(position);
-        holder.meeting.setText(meeting.getPlace() + " - " +meeting.getHour()+ " - "+meeting.getSubject());
-        holder.meetingParticipants.setText(meeting.getParticipants());
+        holder.binding.meeting.setText(meeting.getPlace() + " - " +meeting.getHour()+ " - "+meeting.getSubject());
+        holder.binding.meetingParticipants.setText(meeting.getParticipants());
     }
 
     @Override
@@ -52,24 +53,19 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private FragmentMeetingBinding binding;
+        public ViewHolder(FragmentMeetingBinding b) {
+            super(b.getRoot());
+            binding = b;
 
-        public TextView meeting;
-        public TextView meetingParticipants;
-        public ImageButton deleteButton;
-
-        public ViewHolder(View view) {
-            super(view);
-            meeting = (TextView) view.findViewById(R.id.meeting);
-            meetingParticipants = (TextView) view.findViewById(R.id.meeting_participants);
-            deleteButton = (ImageButton) view.findViewById(R.id.delete_meeting);
-
-            deleteButton.setOnClickListener(new View.OnClickListener() {
+            binding.deleteMeeting.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     try {
                         mMeetings.remove(position);
                         notifyItemRemoved(position);
+                        notifyDataSetChanged();
                     }catch (ArrayIndexOutOfBoundsException e){e.printStackTrace();}
                 }
             });

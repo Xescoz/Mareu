@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mareu.R;
+import com.example.mareu.databinding.ActivityAddMeetingBinding;
 import com.example.mareu.di.DI;
 import com.example.mareu.model.Meeting;
 import com.example.mareu.service.MeetingApiService;
@@ -22,23 +23,20 @@ public class ListMeetingActivity extends AppCompatActivity {
 
     private MeetingApiService mApiService;
     private MeetingRecyclerViewAdapter adapter;
+    private com.example.mareu.databinding.ActivityListMeetingBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_meeting);
-
-        final FloatingActionButton addMeeting = findViewById(R.id.add_meeting);
+        initBinding();
         mApiService = DI.getMeetingApiService();
-
-        RecyclerView rvMeetings = (RecyclerView) findViewById(R.id.meeting_list);
         List<Meeting> meetings = mApiService.getMeetings();
 
         adapter = new MeetingRecyclerViewAdapter(meetings, this);
-        rvMeetings.setAdapter(adapter);
-        rvMeetings.setLayoutManager(new LinearLayoutManager(this));
+        binding.meetingList.setAdapter(adapter);
+        binding.meetingList.setLayoutManager(new LinearLayoutManager(this));
 
-        initListener(addMeeting);
+        initListener();
     }
 
     @Override
@@ -47,8 +45,14 @@ public class ListMeetingActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private void initListener(FloatingActionButton addMeeting){
-        addMeeting.setOnClickListener(new View.OnClickListener() {
+    private void initBinding(){
+        binding = com.example.mareu.databinding.ActivityListMeetingBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+    }
+
+    private void initListener(){
+        binding.addMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListMeetingActivity.this, AddMeetingActivity.class);

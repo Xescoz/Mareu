@@ -88,9 +88,4 @@ public class AddMeetingActivity extends AppCompatActivity {
             }
         });
     }
-
-    public static void navigate(FragmentActivity activity) {
-        Intent intent = new Intent(activity, AddMeetingActivity.class);
-        ActivityCompat.startActivity(activity, intent, null);
-    }
 }
