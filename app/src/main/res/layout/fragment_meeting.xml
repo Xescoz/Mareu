@@ -13,20 +13,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="@string/meeting_circle"
         android:layout_marginTop="@dimen/fab_margin"
-        android:layout_marginLeft="@dimen/fab_margin"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"/>
 
     <TextView
         android:id="@+id/meeting"
         android:textStyle="bold"
+        android:textSize="@dimen/bold_text_size"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginTop="@dimen/fab_margin"
         app:layout_constraintStart_toEndOf="@id/meeting_circle"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="@dimen/fab_margin" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/meeting_participants"
@@ -35,8 +35,7 @@
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/meeting_circle"
-        android:layout_marginLeft="@dimen/fab_margin" />
+        app:layout_constraintStart_toEndOf="@id/meeting_circle" />
 
     <ImageButton
         android:id="@+id/delete_meeting"
@@ -48,7 +47,6 @@
         android:layout_marginEnd="@dimen/fab_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="@dimen/fab_margin"
         android:contentDescription="@string/delete_button" />
 
 

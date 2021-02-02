@@ -95,23 +95,36 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/participantsLyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/field_top_margin"
             android:layout_marginStart="@dimen/text_margin"
             android:layout_marginEnd="@dimen/text_margin"
-            app:layout_constraintTop_toBottomOf="@id/subjectLyt">
+            app:layout_constraintTop_toBottomOf="@id/subjectLyt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/addParticipantButton">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/participants"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="4"
-                android:minLines="4"
-                android:ems="10"
                 android:hint="@string/participants"
-                android:inputType="textMultiLine" />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addParticipantButton"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        app:cornerRadius="20dp"
+        android:layout_marginTop="@dimen/field_padding_top"
+        android:text="@string/add"
+        android:layout_marginEnd="@dimen/text_margin"
+        app:layout_constraintTop_toBottomOf="@id/subjectLyt"
+        app:layout_constraintBottom_toBottomOf="@id/participantsLyt"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/createButton"
