@@ -11,5 +11,19 @@
     <string name="save">Save</string>
     <string name="participants">Participants</string>
     <string name="meeting">%1$s - %2$s - %3$s</string>
+    <string name="hourPicker">%1$sh%2$s</string>
+    <string name="datePicker">%1$s/%2$s/%3$d</string>
     <string name="add">Add</string>
+    <string-array name="room_array">
+        <item>Reunion A</item>
+        <item>Reunion B</item>
+        <item>Reunion C</item>
+        <item>Reunion D</item>
+        <item>Reunion E</item>
+        <item>Reunion F</item>
+        <item>Reunion G</item>
+        <item>Reunion H</item>
+        <item>Reunion I</item>
+        <item>Reunion J</item>
+    </string-array>
 </resources>

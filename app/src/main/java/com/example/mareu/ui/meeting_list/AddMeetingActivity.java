@@ -2,25 +2,36 @@ package com.example.mareu.ui.meeting_list;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 import com.example.mareu.R;
 import com.example.mareu.databinding.ActivityAddMeetingBinding;
 import com.example.mareu.di.DI;
 import com.example.mareu.model.Meeting;
+import com.example.mareu.pickers.DatePickerFragment;
+import com.example.mareu.pickers.TimePickerFragment;
 import com.example.mareu.service.MeetingApiService;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipDrawable;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class AddMeetingActivity extends AppCompatActivity {
+public class AddMeetingActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
     private MeetingApiService mApiService;
     private ActivityAddMeetingBinding binding;
@@ -55,7 +66,7 @@ public class AddMeetingActivity extends AppCompatActivity {
     }
 
     private void init() {
-        binding.placeLyt.getEditText().addTextChangedListener(new TextWatcher() {
+        binding.participantsLyt.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -69,16 +80,38 @@ public class AddMeetingActivity extends AppCompatActivity {
                 binding.createButton.setEnabled(s.length() > 0);
             }
         });
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.room_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.placeSpinner.setAdapter(adapter);
+
     }
 
     private void initListener(){
+        binding.addParticipantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Chip participantChip = new Chip(AddMeetingActivity.this);
+                participantChip.setText(binding.participantsLyt.getEditText().getText().toString());
+                participantChip.setCloseIconVisible(true);
+
+                participantChip.setOnCloseIconClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        binding.participantsChipGroup.removeView(v);
+                    }
+                });
+                binding.participantsChipGroup.addView(participantChip);
+            }
+        });
         binding.createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Meeting meeting = new Meeting(
                         System.currentTimeMillis(),
                         binding.dateLyt.getEditText().getText().toString(),
-                        binding.placeLyt.getEditText().getText().toString(),
+                        binding.placeSpinner.getSelectedItem().toString(),
                         binding.participantsLyt.getEditText().getText().toString(),
                         binding.hourLyt.getEditText().getText().toString(),
                         binding.subjectLyt.getEditText().getText().toString()
@@ -88,4 +121,47 @@ public class AddMeetingActivity extends AppCompatActivity {
             }
         });
     }
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+
+    public void onTimeSet(TimePicker view, int hourOfDayData, int minuteData) {
+        String hourOfDay;
+        String minute;
+
+        hourOfDay = intToString(hourOfDayData);
+        minute = intToString(minuteData);
+
+        binding.hour.setText(getString(R.string.hourPicker, hourOfDay, minute));
+    }
+
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void onDateSet(DatePicker view, int year, int monthData, int dayData) {
+        String month;
+        String day;
+        monthData++;
+
+        month = intToString(monthData);
+        day = intToString(dayData);
+
+        binding.date.setText(getString(R.string.datePicker, day, month, year));
+    }
+
+    public String intToString(int intToChange){
+        String stringToReturn;
+
+        if(intToChange < 10){
+            stringToReturn = "0"+intToChange;
+        }
+        else
+            stringToReturn = ""+intToChange;
+
+        return stringToReturn;
+    }
+
 }

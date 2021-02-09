@@ -8,5 +8,6 @@
     <dimen name="field_padding_top">20dp</dimen>
     <dimen name="field_top_margin">18dp</dimen>
     <dimen name="bold_text_size">18sp</dimen>
+    <dimen name="chip_group_margin">8dp</dimen>
 
 </resources>
