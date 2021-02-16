@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.mareu.R;
 import com.example.mareu.di.DI;
 import com.example.mareu.model.Meeting;
 import com.example.mareu.service.MeetingApiService;
@@ -18,6 +19,7 @@ public class ListMeetingActivity extends AppCompatActivity {
     private MeetingApiService mApiService;
     private MeetingRecyclerViewAdapter adapter;
     private com.example.mareu.databinding.ActivityListMeetingBinding binding;
+    private int color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,4 +56,5 @@ public class ListMeetingActivity extends AppCompatActivity {
             }
         });
     }
+
 }

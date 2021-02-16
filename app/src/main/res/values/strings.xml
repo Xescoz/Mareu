@@ -14,6 +14,8 @@
     <string name="hourPicker">%1$sh%2$s</string>
     <string name="datePicker">%1$s/%2$s/%3$d</string>
     <string name="add">Add</string>
+    <string name="email_address_error">Error email is not a valid email address</string>
+    <string name="list_is_empty">Error, there is no participant in the meeting</string>
     <string-array name="room_array">
         <item>Reunion A</item>
         <item>Reunion B</item>

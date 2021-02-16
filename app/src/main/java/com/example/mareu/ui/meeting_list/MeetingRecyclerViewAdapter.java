@@ -1,11 +1,14 @@
 package com.example.mareu.ui.meeting_list;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mareu.R;
@@ -34,10 +37,12 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
         Meeting meeting = mMeetings.get(position);
         holder.binding.meeting.setText(context.getString(R.string.meeting, meeting.getPlace(),meeting.getHour(),meeting.getSubject()));
         holder.binding.meetingParticipants.setText(meeting.getParticipants());
+        //holder.binding.meetingCircle.setColorFilter(meeting.getColor());
+        holder.binding.meetingCircle.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, meeting.getColor())));
+        //holder.binding.meetingCircle.setColorFilter(ContextCompat.getColor(context, meeting.getColor()), android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
     @Override

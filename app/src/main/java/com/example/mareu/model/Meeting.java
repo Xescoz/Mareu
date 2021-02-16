@@ -23,6 +23,9 @@ public class Meeting {
     /** Subject */
     private String subject;
 
+    /** Color */
+    private int color;
+
     /**
      * Constructor
      * @param id long
@@ -31,8 +34,9 @@ public class Meeting {
      * @param hour String
      * @param participants String
      * @param subject String
+     * @param color int
      */
-    public Meeting(long id, String date, String place, String participants, String hour, String subject){
+    public Meeting(long id, String date, String place, String participants, String hour, String subject, int color){
 
         this.id = id;
         this.date = date;
@@ -40,6 +44,7 @@ public class Meeting {
         this.participants = participants;
         this.hour = hour;
         this.subject = subject;
+        this.color = color;
     }
 
     public long getId() {
@@ -89,4 +94,13 @@ public class Meeting {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
 }
