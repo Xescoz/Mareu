@@ -28,8 +28,8 @@ public class ListMeetingActivity extends AppCompatActivity implements DatePicker
 
     private MeetingRecyclerViewAdapter adapter;
     private com.example.mareu.databinding.ActivityListMeetingBinding binding;
-    MeetingApiService apiService = DI.getMeetingApiService();
-    List<Meeting> meetings = apiService.getMeetings();
+    private final MeetingApiService apiService = DI.getMeetingApiService();
+    private final List<Meeting> meetings = apiService.getMeetings();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,41 +86,14 @@ public class ListMeetingActivity extends AppCompatActivity implements DatePicker
             case R.id.dateFilter:
                 showDatePickerDialog();
                 return true;
-            case R.id.roomA:
-                showRoom("Reunion A");
-                return true;
-            case R.id.roomB:
-                showRoom("Reunion B");
-                return true;
-            case R.id.roomC:
-                showRoom("Reunion C");
-                return true;
-            case R.id.roomD:
-                showRoom("Reunion D");
-                return true;
-            case R.id.roomE:
-                showRoom("Reunion E");
-                return true;
-            case R.id.roomF:
-                showRoom("Reunion F");
-                return true;
-            case R.id.roomG:
-                showRoom("Reunion G");
-                return true;
-            case R.id.roomH:
-                showRoom("Reunion H");
-                return true;
-            case R.id.roomI:
-                showRoom("Reunion I");
-                return true;
-            case R.id.roomJ:
-                showRoom("Reunion J");
-                return true;
             case R.id.cancel:
                 initRecyclerView(meetings);
                 return true;
+            case R.id.roomFilter:
+                return true;
             default:
-                return super.onOptionsItemSelected(item);
+                showRoom(item.getTitle().toString());
+                return true;
         }
     }
 

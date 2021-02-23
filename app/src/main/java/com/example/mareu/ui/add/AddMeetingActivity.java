@@ -170,7 +170,11 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
     private void createMeeting() {
         if (participantsList.isEmpty()) {
             Toast.makeText(AddMeetingActivity.this, R.string.list_is_empty, Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        else if(binding.subjectEdit.getText().toString().isEmpty()){
+            Toast.makeText(AddMeetingActivity.this, R.string.subject_is_empty, Toast.LENGTH_SHORT).show();
+        }
+        else {
             Meeting meeting = new Meeting(
                     System.currentTimeMillis(),
                     binding.dateInput.getEditText().getText().toString(),
@@ -190,8 +194,6 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
         for (int i = 0; i < participantsList.size(); i++) {
             participantStringToReturn = (i == 0) ? participantsList.get(i) : participantStringToReturn + ", " + participantsList.get(i);
         }
-        if(participantStringToReturn.length() >= 30)
-            participantStringToReturn = participantStringToReturn.substring(0,30)+"...";
         return participantStringToReturn;
     }
 
