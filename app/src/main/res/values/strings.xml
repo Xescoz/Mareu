@@ -11,11 +11,24 @@
     <string name="save">Save</string>
     <string name="participants">Participants</string>
     <string name="meeting">%1$s - %2$s - %3$s</string>
-    <string name="hourPicker">%1$sh%2$s</string>
-    <string name="datePicker">%1$s/%2$s/%3$d</string>
+    <string name="hour_picker">%1$sh%2$s</string>
+    <string name="date_picker">%1$s/%2$s/%3$d</string>
     <string name="add">Add</string>
     <string name="email_address_error">Error email is not a valid email address</string>
     <string name="list_is_empty">Error, there is no participant in the meeting</string>
+    <string name="room">Room</string>
+    <string name="filter">Filter</string>
+    <string name="cancel">Cancel</string>
+    <string name="room_a">Reunion A</string>
+    <string name="room_b">Reunion B</string>
+    <string name="room_c">Reunion C</string>
+    <string name="room_d">Reunion D</string>
+    <string name="room_e">Reunion E</string>
+    <string name="room_f">Reunion F</string>
+    <string name="room_g">Reunion G</string>
+    <string name="room_h">Reunion H</string>
+    <string name="room_i">Reunion I</string>
+    <string name="room_j">Reunion J</string>
     <string-array name="room_array">
         <item>Reunion A</item>
         <item>Reunion B</item>

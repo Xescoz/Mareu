@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dateFilter"
+        android:title="@string/date"
+        app:showAsAction="never"/>
+    <item android:id="@+id/roomFilter"
+        android:title="@string/room"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/roomA"
+                android:title="@string/room_a" />
+            <item
+                android:id="@+id/roomB"
+                android:title="@string/room_b" />
+            <item
+                android:id="@+id/roomC"
+                android:title="@string/room_c" />
+            <item
+                android:id="@+id/roomD"
+                android:title="@string/room_d" />
+            <item
+                android:id="@+id/roomE"
+                android:title="@string/room_e" />
+            <item
+                android:id="@+id/roomF"
+                android:title="@string/room_f" />
+            <item
+                android:id="@+id/roomG"
+                android:title="@string/room_g" />
+            <item
+                android:id="@+id/roomH"
+                android:title="@string/room_h" />
+            <item
+                android:id="@+id/roomI"
+                android:title="@string/room_i" />
+            <item
+                android:id="@+id/roomJ"
+                android:title="@string/room_j" />
+        </menu>
+    </item>
+    <item android:id="@+id/cancel"
+        android:title="@string/cancel"
+        app:showAsAction="never"/>
+</menu>

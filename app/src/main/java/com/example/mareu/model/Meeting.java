@@ -1,42 +1,81 @@
 package com.example.mareu.model;
 
+import android.graphics.Color;
+
 /**
  * Model object representing a Meeting
  */
 public class Meeting {
 
-    /** Identifier */
+    /**
+     * Identifier
+     */
     private long id;
 
-    /** Date */
+    /**
+     * Date
+     */
     private String date;
 
-    /** Place */
+    /**
+     * Place
+     */
     private String place;
 
-    /** Participants */
+    /**
+     * Participants
+     */
     private String participants;
 
-    /** Hour */
+    /**
+     * Hour
+     */
     private String hour;
 
-    /** Subject */
+    /**
+     * Subject
+     */
     private String subject;
 
-    /** Color */
+    /**
+     * Color
+     */
     private int color;
 
     /**
      * Constructor
-     * @param id long
-     * @param date String
-     * @param place String
-     * @param hour String
+     *
+     * @param id           long
+     * @param date         String
+     * @param place        String
+     * @param hour         String
      * @param participants String
-     * @param subject String
-     * @param color int
+     * @param subject      String
+     * @param colorHex     String
      */
-    public Meeting(long id, String date, String place, String participants, String hour, String subject, int color){
+    public Meeting(long id, String date, String place, String participants, String hour, String subject, String colorHex) {
+
+        this.id = id;
+        this.date = date;
+        this.place = place;
+        this.participants = participants;
+        this.hour = hour;
+        this.subject = subject;
+        this.color = Color.parseColor(colorHex);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param id           long
+     * @param date         String
+     * @param place        String
+     * @param hour         String
+     * @param participants String
+     * @param subject      String
+     * @param color        int
+     */
+    public Meeting(long id, String date, String place, String participants, String hour, String subject, int color) {
 
         this.id = id;
         this.date = date;
