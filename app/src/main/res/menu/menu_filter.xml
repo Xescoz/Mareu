@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/dateFilter"
         android:title="@string/date"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item android:id="@+id/roomFilter"
         android:title="@string/room"
         app:showAsAction="never">

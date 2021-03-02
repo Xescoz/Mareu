@@ -17,7 +17,7 @@
     <string name="email_address_error">Error email is not a valid email address</string>
     <string name="list_is_empty">Error, there is no participant in the meeting</string>
     <string name="subject_is_empty">Error, there is no subject in the meeting</string>
-    <string name="room">Room</string>
+    <string name="room">Salle</string>
     <string name="filter">Filter</string>
     <string name="cancel">Reset</string>
     <string name="room_a">Salle A</string>
@@ -30,6 +30,8 @@
     <string name="room_h">Salle H</string>
     <string name="room_i">Salle I</string>
     <string name="room_j">Salle J</string>
+    <string name="dateFilter">dateFilter</string>
+    <string name="roomFilter">roomFilter</string>
     <string-array name="room_array">
         <item>@string/room_a</item>
         <item>@string/room_b</item>
