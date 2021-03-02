@@ -42,7 +42,7 @@ public class DummyMeetingApiService implements MeetingApiService {
     public List<Meeting> returnMatchingMeetingsWithRoom(String room){
         meetingsMatchingRoom = new ArrayList<>();
         for(int i = 0 ; i<meetings.size(); i++ ){
-            if (meetings.get(i).getPlace().equals(room) && !meetingsMatchingRoom.contains(meetings.get(i)))
+            if (meetings.get(i).getRoom().equals(room) && !meetingsMatchingRoom.contains(meetings.get(i)))
                 meetingsMatchingRoom.add(meetings.get(i));
         }
         return meetingsMatchingRoom;

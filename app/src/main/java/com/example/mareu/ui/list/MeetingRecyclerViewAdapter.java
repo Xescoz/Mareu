@@ -38,7 +38,7 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Meeting meeting = meetings.get(position);
-        holder.binding.meeting.setText(context.getString(R.string.meeting, meeting.getSubject(), meeting.getHour(), meeting.getPlace()));
+        holder.binding.meeting.setText(context.getString(R.string.meeting, meeting.getSubject(), meeting.getHour(), meeting.getRoom()));
         holder.binding.meetingParticipants.setText(meeting.getParticipants());
         holder.binding.meetingCircle.setColorFilter(meeting.getColor(), PorterDuff.Mode.SRC_ATOP);
     }

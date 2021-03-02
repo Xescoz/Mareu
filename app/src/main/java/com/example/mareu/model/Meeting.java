@@ -20,7 +20,7 @@ public class Meeting {
     /**
      * Place
      */
-    private String place;
+    private String room;
 
     /**
      * Participants
@@ -47,17 +47,17 @@ public class Meeting {
      *
      * @param id           long
      * @param date         String
-     * @param place        String
+     * @param room        String
      * @param hour         String
      * @param participants String
      * @param subject      String
      * @param colorHex     String
      */
-    public Meeting(long id, String date, String place, String participants, String hour, String subject, String colorHex) {
+    public Meeting(long id, String date, String room, String participants, String hour, String subject, String colorHex) {
 
         this.id = id;
         this.date = date;
-        this.place = place;
+        this.room = room;
         this.participants = participants;
         this.hour = hour;
         this.subject = subject;
@@ -69,17 +69,17 @@ public class Meeting {
      *
      * @param id           long
      * @param date         String
-     * @param place        String
+     * @param room        String
      * @param hour         String
      * @param participants String
      * @param subject      String
      * @param color        int
      */
-    public Meeting(long id, String date, String place, String participants, String hour, String subject, int color) {
+    public Meeting(long id, String date, String room, String participants, String hour, String subject, int color) {
 
         this.id = id;
         this.date = date;
-        this.place = place;
+        this.room = room;
         this.participants = participants;
         this.hour = hour;
         this.subject = subject;
@@ -102,12 +102,12 @@ public class Meeting {
         this.date = date;
     }
 
-    public String getPlace() {
-        return place;
+    public String getRoom() {
+        return room;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     public String getParticipants() {
