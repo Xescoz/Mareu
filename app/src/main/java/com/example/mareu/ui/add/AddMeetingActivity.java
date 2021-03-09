@@ -143,7 +143,7 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
     private void addParticipants() {
         String participantName = binding.participantsLayout.getEditText().getText().toString();
 
-        Utils.hideKeyboard(AddMeetingActivity.this);
+
 
         if (Utils.isValidEmail(participantName)) {
 
@@ -152,6 +152,7 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
             participantChip.setCloseIconVisible(true);
 
             participantsList.add(participantName);
+            Utils.hideKeyboard(AddMeetingActivity.this);
 
             participantChip.setOnCloseIconClickListener(new View.OnClickListener() {
                 @Override
@@ -162,8 +163,13 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
             });
 
             binding.participantsChipGroup.addView(participantChip);
-        } else {
+        }
+        else if (binding.participantsEdit.getText().toString().isEmpty()){
+            Toast.makeText(AddMeetingActivity.this, R.string.list_is_empty, Toast.LENGTH_SHORT).show();
+        }
+        else {
             Toast.makeText(AddMeetingActivity.this, R.string.email_address_error, Toast.LENGTH_SHORT).show();
+            Utils.hideKeyboard(AddMeetingActivity.this);
         }
     }
 
