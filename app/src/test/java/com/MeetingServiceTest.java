@@ -40,6 +40,12 @@ public class MeetingServiceTest {
     }
 
     @Test
+    public void getMeetingMatchingDateWithSuccess(){
+        List<Meeting> meetingsMatchingDate = service.returnMatchingMeetingsWithDate("10/02/2021");
+        assertEquals("10/02/2021", meetingsMatchingDate.get(0).getDate());
+    }
+
+    @Test
     public void deleteMeetingWithSuccess(){
         Meeting meetingToDelete = service.getMeetings().get(1);
         service.deleteMeeting(meetingToDelete);

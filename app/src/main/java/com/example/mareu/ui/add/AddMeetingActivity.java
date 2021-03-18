@@ -143,8 +143,6 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
     private void addParticipants() {
         String participantName = binding.participantsLayout.getEditText().getText().toString();
 
-
-
         if (Utils.isValidEmail(participantName)) {
 
             Chip participantChip = new Chip(AddMeetingActivity.this);
