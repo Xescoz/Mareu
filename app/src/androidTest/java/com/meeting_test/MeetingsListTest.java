@@ -52,6 +52,14 @@ public class MeetingsListTest {
     }
 
     @Test
+    public void myMeetingList_dateFilter_shouldShowSelectedDate() {
+        onView(withContentDescription("Filter")).perform(click());
+        onView(withText("Date")).perform(click());
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.meetingRecyclerView)).check(notWithItemCount(ITEMS_COUNT));
+    }
+
+    @Test
     public void myMeetingList_reset_shouldShowAllMeetings() {
         onView(withContentDescription("Filter")).perform(click());
         onView(withText("Salle")).perform(click());
